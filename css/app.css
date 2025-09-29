@@ -45,11 +45,12 @@ body {
         }
 
 .main {
-    flex-grow: 1;
-    margin-left: 180px;
+    flex: 1; /* Take all available space */
+    margin-left: 180px; /* Match sidebar width */
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 100vh; /* Full viewport height */
+    width: calc(100% - 180px); /* Full width minus sidebar */
 }
 
 .topbar {
@@ -61,17 +62,18 @@ body {
     padding: 0 20px;
     position: fixed;
     top: 0;
-    left: 180px;
+    left: 180px; /* Align with sidebar */
     right: 0;
     z-index: 1000;
 }
 
 .content {
-    flex-grow: 1;
+    flex: 1; /* Expand to fill .main */
     padding: 20px;
-    margin-top: 60px;
-    background-color: #f8f9fa;
-    overflow-y: auto;
+    margin-top: 60px; /* Offset for topbar */
+    background-color: #f8f9fa; /* White background */
+    min-height: calc(100vh - 60px); /* Full height minus topbar */
+    box-sizing: border-box;
 }
 
 .collapsible {
@@ -94,7 +96,6 @@ body {
     margin-top: 10px;
 }
 
-/* Toast notification styles */
 #toast-message {
     visibility: hidden;
     min-width: 250px;
