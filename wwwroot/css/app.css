@@ -3,11 +3,10 @@ html, body {
     margin: 0;
     padding: 0;
     background: linear-gradient(135deg, #2b4f60, #1c2e36);
-}
-
-body {
-    display: flex;
+    display: flex; /* Ensure body is a flex container */
     flex-direction: row;
+    width: 100vw; /* Full viewport width */
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 .sidebar {
@@ -44,7 +43,15 @@ body {
             font-weight: bold;
         }
 
-
+.main {
+    flex: 1; /* Take all available space */
+    margin-left: 180px; /* Offset for sidebar */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Full height */
+    width: calc(100vw - 180px) !important; /* Explicit width */
+    box-sizing: border-box;
+}
 
 .topbar {
     height: 60px;
@@ -55,26 +62,19 @@ body {
     padding: 0 20px;
     position: fixed;
     top: 0;
-    left: 180px; /* Align with sidebar */
+    left: 180px;
     right: 0;
     z-index: 1000;
-}
-
-.main {
-    flex: 1;
-    margin-left: 180px;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    width: calc(100% - 180px);
+    width: calc(100vw - 180px) !important; /* Match .main */
 }
 
 .content {
-    
+    flex: 1; /* Fill .main */
     padding: 20px;
-    margin-top: 60px;
-    background-color: #f8f9fa;
-    min-height: calc(100vh - 60px);
+    margin-top: 60px; /* Offset for topbar */
+    background-color: #f8f9fa; /* White background */
+    min-height: calc(100vh - 60px); /* Full height minus topbar */
+    width: 100% !important; /* Full width of .main */
     box-sizing: border-box;
 }
 
