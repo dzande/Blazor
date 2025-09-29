@@ -1,40 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Core Blazor</title>
     <base href="/Blazor/" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
-    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css" />
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" />
     <link rel="stylesheet" href="css/app.css" />
     <link rel="icon" type="image/png" href="favicon.ico" />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 </head>
 <body>
     <div id="app">Loading...</div>
-    <!--<div id="blazor-error-ui">
+    <div id="blazor-error-ui">
         An unhandled error has occurred.
         <a href="" class="reload">Reload</a>
         <a class="dismiss">🗙</a>
-    </div>-->
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://alcdn.msauth.net/browser/2.37.0/js/msal-browser.min.js"></script>
     <script>
-        var toastTimer;
-        function showToast(message, type, delay) {
-            var toast = document.getElementById('toast-message');
-            var showDuration = delay || 3000;
-            toast.textContent = message;
-            toast.className = 'show ' + (type || '');
-            clearTimeout(toastTimer);
-            toastTimer = setTimeout(function () { toast.className = toast.className.replace('show', ''); }, showDuration);
+        const msalConfig = {
+            auth: {
+                clientId: "1950a258-227b-4e31-a9cf-717495945fc2", // Replace with your Entra ID app's client ID
+                authority: "https://login.microsoftonline.com/ca7981a2-785a-463d-b82a-3db87dfc3ce6",
+                redirectUri: "https://dzande.github.io/Blazor/DeviceAuth"
+            },
+            cache: { cacheLocation: "localStorage" }
+        };
+        const msalInstance = new msal.PublicClientApplication(msalConfig);
+
+        // Custom MSAL device code flow functions
+        async function loginStartDeviceCodeFlow(loginRequest) {
+            try {
+                const response = await msalInstance.acquireTokenByDeviceCode({
+                    scopes: loginRequest.scopes,
+                    onDeviceCodeResponse: (deviceCodeResponse) => {
+                        return {
+                            userCode: deviceCodeResponse.userCode,
+                            deviceCode: deviceCodeResponse.deviceCode,
+                            verificationUri: deviceCodeResponse.verificationUri,
+                            expiresIn: deviceCodeResponse.expiresOn,
+                            interval: deviceCodeResponse.interval,
+                            message: deviceCodeResponse.message
+                        };
+                    }
+                });
+                return response;
+            } catch (error) {
+                throw error;
+            }
         }
     </script>
     <script src="_framework/blazor.webassembly.js"></script>
 </body>
+</html>
