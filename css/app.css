@@ -72,7 +72,8 @@ html, body {
 .content {
     padding: 20px;
     margin-top: 60px;
-    background-color: #f8f9fa;
+     /*background-color: #f8f9fa;*/
+ background-color: red;
     min-height: calc(100vh - 60px);
     width: 100% !important;
     max-width: none !important;
