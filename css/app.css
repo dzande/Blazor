@@ -44,14 +44,7 @@ body {
             font-weight: bold;
         }
 
-.main {
-    flex: 1; /* Take all available space */
-    margin-left: 180px; /* Match sidebar width */
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Full viewport height */
-    width: calc(100% - 180px); /* Full width minus sidebar */
-}
+
 
 .topbar {
     height: 60px;
@@ -67,12 +60,21 @@ body {
     z-index: 1000;
 }
 
+.main {
+    flex: 1;
+    margin-left: 180px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: calc(100% - 180px);
+}
+
 .content {
-    flex: 1; /* Expand to fill .main */
+    flex: 1;
     padding: 20px;
-    margin-top: 60px; /* Offset for topbar */
-    background-color: #f8f9fa; /* White background */
-    min-height: calc(100vh - 60px); /* Full height minus topbar */
+    margin-top: 60px;
+    background-color: #f8f9fa;
+    min-height: calc(100vh - 60px);
     box-sizing: border-box;
 }
 
