@@ -49,8 +49,7 @@ html, body {
     flex-direction: column;
     min-height: 100vh;
     width: calc(100% - 180px) !important;
-    max-width: none !important; /* Override any max-width */
-    flex: 1;
+    max-width: none !important;
     box-sizing: border-box;
 }
 
@@ -77,7 +76,6 @@ html, body {
     min-height: calc(100vh - 60px);
     width: 100% !important;
     max-width: none !important;
-    flex: 1;
     box-sizing: border-box;
 }
 
