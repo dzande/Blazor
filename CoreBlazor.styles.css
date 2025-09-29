@@ -5,8 +5,18 @@
     flex-direction: column;
 }
 
-main[b-uflzy1czrk] {
+/*main {
     flex: 1;
+}*/
+.main[b-uflzy1czrk] {
+    margin-left: 180px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: calc(100% - 180px) !important;
+    max-width: none !important; /* Override any max-width */
+    flex: 1;
+    box-sizing: border-box;
 }
 
 .sidebar[b-uflzy1czrk] {

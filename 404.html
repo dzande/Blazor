@@ -1,3 +1,5 @@
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
@@ -35,6 +37,20 @@
             clearTimeout(toastTimer);
             toastTimer = setTimeout(function () { toast.className = toast.className.replace('show', ''); }, showDuration);
         }
+        // SPA Fallback for GitHub Pages
+        (function(l) {
+            if ([''].indexOf(l.pathname) < 0 && l.search.search(/^\//) < 0) {
+                var pathSegmentsToKeep = 1; // For /Blazor/
+                l.replace(
+                    l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+                    l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+                    l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+                    (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+                    l.hash
+                );
+            }
+        }(window.location));
     </script>
     <script src="_framework/blazor.webassembly.js"></script>
 </body>
+</html>

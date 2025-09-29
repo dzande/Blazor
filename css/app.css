@@ -3,11 +3,10 @@ html, body {
     margin: 0;
     padding: 0;
     background: linear-gradient(135deg, #2b4f60, #1c2e36);
-}
-
-body {
     display: flex;
     flex-direction: row;
+    width: 100vw !important;
+    overflow-x: hidden;
 }
 
 .sidebar {
@@ -44,7 +43,15 @@ body {
             font-weight: bold;
         }
 
-
+.main {
+    margin-left: 180px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: calc(100% - 180px) !important;
+    max-width: none !important;
+    box-sizing: border-box;
+}
 
 .topbar {
     height: 60px;
@@ -55,26 +62,20 @@ body {
     padding: 0 20px;
     position: fixed;
     top: 0;
-    left: 180px; /* Align with sidebar */
+    left: 180px;
     right: 0;
     z-index: 1000;
-}
-
-.main {
-    flex: 1;
-    margin-left: 180px;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    width: calc(100% - 180px);
+    width: calc(100% - 180px) !important;
+    max-width: none !important;
 }
 
 .content {
-    flex: 1;
     padding: 20px;
     margin-top: 60px;
     background-color: #f8f9fa;
     min-height: calc(100vh - 60px);
+    width: 100% !important;
+    max-width: none !important;
     box-sizing: border-box;
 }
 
