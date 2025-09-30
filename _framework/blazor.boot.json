@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "CoreBlazor",
   "resources": {
-    "hash": "sha256-QaA2HgAfHisex3q5lrnGvJ8J98ejDo/a96x0dud1qd0=",
+    "hash": "sha256-h/ZOiNDuwl/miSu1KCC5MAF8XEPoCDGbaUVGQDlQAf4=",
     "jsModuleNative": {
       "dotnet.native.js": "sha256-1QpKPnxEuRCElzcp+e3MrovJeAJkuzqKmRQay/6Aa08="
     },
@@ -18,7 +18,7 @@
     },
     "coreAssembly": {},
     "assembly": {
-      "Microsoft.AspNetCore.Components.wasm": "sha256-q4FpxRZDnjfsbpqGPjcBse0piHHr+fToxpecerxLPMg=",
+      "Microsoft.AspNetCore.Components.wasm": "sha256-utRjmoLSTP1z6oonRj/0yMj0WCX9Cfs9eOZJUwxw94Y=",
       "Microsoft.AspNetCore.Components.Web.wasm": "sha256-D5W4kON3PK+2qqa4lDzj1MKk0IkQWNmJWDz+dxs8aRg=",
       "Microsoft.AspNetCore.Components.WebAssembly.wasm": "sha256-9jADYZDxC7WqxAoxOMbjN3Qn6fIT2ZupWnjwmu+yxQQ=",
       "Microsoft.Extensions.Configuration.wasm": "sha256-od574rRtVVRJj+24jbl8j3GdQFpxlJOpSx+pEMw1Q18=",
@@ -43,14 +43,14 @@
       "System.Diagnostics.DiagnosticSource.wasm": "sha256-ywJEurUPaOlkE+/Ct81BrVf/cFGqkDb7smYdrIF9kBo=",
       "System.Linq.wasm": "sha256-QySGIgBogx4w79sKq1TbyMsky/99AET6C0W4zX6uyBQ=",
       "System.Memory.wasm": "sha256-5Sv7U2vkzwHsdBKOJ+aAA3jdkxyDrQKu1H8Ui0rGVEo=",
-      "System.Net.Http.wasm": "sha256-Pkv3/kcnE36vPG6pR9XGLBLTftVIoubzGpxQEExspco=",
+      "System.Net.Http.wasm": "sha256-7xchyPYOWbKbnkd3VqCI1k2YeU/XjIM0WfYLFx/ihgg=",
       "System.Net.Primitives.wasm": "sha256-gkZfFGrjgg6qS9h0vSysbuP2SKdFdqVW52K8l5w5yGY=",
       "System.Private.Uri.wasm": "sha256-fjvBi0Isn+EKeNkfqZo1rFsJThTVNb5j9gu6kde6+7Y=",
       "System.Runtime.InteropServices.JavaScript.wasm": "sha256-YdYasJwRN+2MwcCdionXc6dnOjGpcCwBC9zjnoHQpCo=",
-      "System.Runtime.wasm": "sha256-MZRJB7E7mBlRmsaoZHt0EkSogaLTOUJolXTeEH70SV0=",
+      "System.Runtime.wasm": "sha256-whJVuMxXo81WLBGDjyljAbwK2eZBCupnOFkfGG8J0tI=",
       "System.Text.RegularExpressions.wasm": "sha256-YVSquKNmLT/T/5RKu/7rGnL0bW2rki1PzPv1Pd29VQI=",
-      "System.Private.CoreLib.wasm": "sha256-VNROQm1uwGfsjjTBJ9YYh2ZjJS5faLwSQ9zF+ZWUvY0=",
-      "CoreBlazor.wasm": "sha256-dMQWsh6a3udBNYOkfA6zHLUxvbQJ09g0miEaZTAkqd8="
+      "System.Private.CoreLib.wasm": "sha256-l429YizjYctXWTrWJwstGh6Q5fvN3WbBTm8n4VwBNnk=",
+      "CoreBlazor.wasm": "sha256-NKbV2tByo1lin6WIqJyRg2sL/XuFAXKAGxF89DaxLK0="
     }
   },
   "cacheBootResources": true,
