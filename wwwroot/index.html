@@ -16,12 +16,13 @@
         <a href="" class="reload">Reload</a>
         <a class="dismiss">🗙</a>
     </div>
+    <div id="toast-message" class="toast" role="alert" aria-live="assertive" aria-atomic="true" style="position: fixed; top: 20px; right: 20px; z-index: 1050; min-width: 200px;"></div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://alcdn.msauth.net/browser/2.37.0/js/msal-browser.min.js"></script>
     <script>
         const msalConfig = {
             auth: {
-                clientId: "1950a258-227b-4e31-a9cf-717495945fc2", // Replace with your Entra ID app's client ID
+                clientId: "1950a258-227b-4e31-a9cf-717495945fc2",
                 authority: "https://login.microsoftonline.com/ca7981a2-785a-463d-b82a-3db87dfc3ce6",
                 redirectUri: "https://dzande.github.io/Blazor/DeviceAuth"
             },
@@ -29,7 +30,6 @@
         };
         const msalInstance = new msal.PublicClientApplication(msalConfig);
 
-        // Custom MSAL device code flow functions
         async function loginStartDeviceCodeFlow(loginRequest) {
             try {
                 const response = await msalInstance.acquireTokenByDeviceCode({
@@ -49,6 +49,18 @@
             } catch (error) {
                 throw error;
             }
+        }
+
+        var toastTimer;
+        function showToast(message, type, delay) {
+            var toast = document.getElementById('toast-message');
+            var showDuration = delay || 3000;
+            toast.textContent = message;
+            toast.className = 'toast show ' + (type || '');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(function () {
+                toast.className = toast.className.replace('show', '');
+            }, showDuration);
         }
     </script>
     <script src="_framework/blazor.webassembly.js"></script>
