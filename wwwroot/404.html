@@ -12,13 +12,6 @@
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" />
     <link rel="stylesheet" href="css/app.css" />
     <link rel="icon" type="image/png" href="favicon.ico" />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 </head>
 <body>
     <div id="app">Loading...</div>
@@ -28,28 +21,8 @@
         <a class="dismiss">🗙</a>
     </div>
     <script>
-        var toastTimer;
-        function showToast(message, type, delay) {
-            var toast = document.getElementById('toast-message');
-            var showDuration = delay || 3000;
-            toast.textContent = message;
-            toast.className = 'show ' + (type || '');
-            clearTimeout(toastTimer);
-            toastTimer = setTimeout(function () { toast.className = toast.className.replace('show', ''); }, showDuration);
-        }
-        // SPA Fallback for GitHub Pages
-        (function(l) {
-            if ([''].indexOf(l.pathname) < 0 && l.search.search(/^\//) < 0) {
-                var pathSegmentsToKeep = 1; // For /Blazor/
-                l.replace(
-                    l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-                    l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
-                    l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
-                    (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-                    l.hash
-                );
-            }
-        }(window.location));
+        // Redirect all routes to /Blazor/ for client-side routing
+        window.location.href = "/Blazor/" + window.location.pathname.replace(/^\/Blazor\/?/, '') + window.location.search + window.location.hash;
     </script>
     <script src="_framework/blazor.webassembly.js"></script>
 </body>
