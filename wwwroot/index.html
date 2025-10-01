@@ -4,7 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Core Blazor</title>
-    <base href="/Blazor/" />
+    <!--<base href="/Blazor/" />-->
+    <base href="@(Environment.GetEnvironmentVariable(" ASPNETCORE_ENVIRONMENT") == "Development" ? "/" : "/Blazor/" )" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/app.css" />
     <!--<link rel="icon" type="image/png" href="favicon.ico" />-->
@@ -20,6 +21,9 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://alcdn.msauth.net/browser/2.37.0/js/msal-browser.min.js"></script>
     <script>
+        window.onerror = function (message, source, lineno, colno, error) {
+            console.error("JavaScript error:", message, source, lineno, colno, error);
+        };
         const msalConfig = {
             auth: {
                 clientId: "1950a258-227b-4e31-a9cf-717495945fc2",
@@ -51,17 +55,18 @@
             }
         }
 
-        //var toastTimer;
-        //function showToast(message, type, delay) {
-        //    var toast = document.getElementById('toast-message');
-        //    var showDuration = delay || 3000;
-        //    toast.textContent = message;
-        //    toast.className = 'toast show ' + (type || '');
-        //    clearTimeout(toastTimer);
-        //    toastTimer = setTimeout(function () {
-        //        toast.className = toast.className.replace('show', '');
-        //    }, showDuration);
-        //}
+        var toastTimer;
+        function showToast(message, type, delay) {
+            console.log("showToast called:", message, type, delay);
+            var toast = document.getElementById('toast-message');
+            var showDuration = delay || 3000;
+            toast.textContent = message;
+            toast.className = 'toast show ' + (type || '');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(function () {
+                toast.className = toast.className.replace('show', '');
+            }, showDuration);
+        }
     </script>
     <script src="_framework/blazor.webassembly.js"></script>
 </body>
