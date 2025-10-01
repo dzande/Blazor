@@ -51,17 +51,17 @@
             }
         }
 
-        var toastTimer;
-        function showToast(message, type, delay) {
-            var toast = document.getElementById('toast-message');
-            var showDuration = delay || 3000;
-            toast.textContent = message;
-            toast.className = 'toast show ' + (type || '');
-            clearTimeout(toastTimer);
-            toastTimer = setTimeout(function () {
-                toast.className = toast.className.replace('show', '');
-            }, showDuration);
-        }
+        //var toastTimer;
+        //function showToast(message, type, delay) {
+        //    var toast = document.getElementById('toast-message');
+        //    var showDuration = delay || 3000;
+        //    toast.textContent = message;
+        //    toast.className = 'toast show ' + (type || '');
+        //    clearTimeout(toastTimer);
+        //    toastTimer = setTimeout(function () {
+        //        toast.className = toast.className.replace('show', '');
+        //    }, showDuration);
+        //}
     </script>
     <script src="_framework/blazor.webassembly.js"></script>
 </body>
